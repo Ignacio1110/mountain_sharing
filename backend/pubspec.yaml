@@ -1,0 +1,21 @@
+name: backend
+description: An new Dart Frog application
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  dart_frog: ^1.0.0
+  in_memory_posts_data_source:  
+    path: packages/in_memory_posts_data_source
+  posts_data_source:
+    path: packages/posts_data_source
+
+
+dev_dependencies:
+  http: ^1.0.0
+  mocktail: ^0.3.0
+  test: ^1.19.2
+  very_good_analysis: ^5.0.0

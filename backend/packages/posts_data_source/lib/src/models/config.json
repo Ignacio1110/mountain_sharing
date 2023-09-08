@@ -1,0 +1,53 @@
+{
+    "model_name": "post model",
+    "additionals": [
+        "copyWith",
+        "json",
+        "equatable",
+        "toString"
+    ],
+    "style": "json_serializable",
+    "relations": [],
+    "properties": [
+        {
+            "name": "id",
+            "type": "String"
+        },
+        {
+            "name": "mountainName",
+            "type": "String?"
+        },
+        {
+            "name": "authorId",
+            "type": "String?"
+        },
+        {
+            "name": "title",
+            "type": "String"
+        },
+        {
+            "name": "content",
+            "type": "String"
+        },
+        {
+            "name": "img",
+            "type": "String"
+        },
+        {
+            "name": "tags",
+            "type": "List<String>"
+        },
+        {
+            "name": "views",
+            "type": "int"
+        },
+        {
+            "name": "likes",
+            "type": "int"
+        },
+        {
+            "name": "comments",
+            "type": "int"
+        }
+    ]
+}
