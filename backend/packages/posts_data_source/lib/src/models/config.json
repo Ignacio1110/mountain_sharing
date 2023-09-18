@@ -19,7 +19,7 @@
         },
         {
             "name": "authorId",
-            "type": "String?"
+            "type": "String"
         },
         {
             "name": "title",

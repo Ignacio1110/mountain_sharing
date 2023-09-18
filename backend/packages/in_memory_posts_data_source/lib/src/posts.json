@@ -1,32 +1,34 @@
-[
+{
+  "posts": [
     {
-        "postId": "1",
-        "authorId": "user1",
-        "mountainName":"mountain1",
-        "title": "First Post",
-        "content": "This is the content of the first post.",
-        "img": "image1.jpg",
-        "tags": [
-            "tag1",
-            "tag2"
-        ],
-        "views": 100,
-        "likes": 50,
-        "comments": 5
+      "id": "1",
+      "authorId": "user1",
+      "mountainName": "mountain1",
+      "title": "First Post",
+      "content": "This is the content of the first post.",
+      "img": "image1.jpg",
+      "tags": [
+        "tag1",
+        "tag2"
+      ],
+      "views": 100,
+      "likes": 50,
+      "comments": 5
     },
     {
-        "postId": "2",
-        "authorId": "user4",
-        "mountainName":"mountain2",
-        "title": "Second Post",
-        "content": "This is the content of the second post.",
-        "img": "image2.jpg",
-        "tags": [
-            "tag3",
-            "tag4"
-        ],
-        "views": 200,
-        "likes": 75,
-        "comments": 2
+      "id": "2",
+      "authorId": "user4",
+      "mountainName": "mountain2",
+      "title": "Second Post",
+      "content": "This is the content of the second post.",
+      "img": "image2.jpg",
+      "tags": [
+        "tag3",
+        "tag4"
+      ],
+      "views": 200,
+      "likes": 75,
+      "comments": 2
     }
-]
+  ]
+}
