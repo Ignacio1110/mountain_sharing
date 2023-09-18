@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/app/features/all_mountains/view/all_mountains_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../all_mountains/view/all_mountains_view.dart';
 
 class MainView extends ConsumerWidget {
   /// TODO add your comment here

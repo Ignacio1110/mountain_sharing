@@ -1,5 +1,5 @@
 # TODO: add your app name here
-name: flutter_application_1
+name: mountain_sharing
 # TODO: add your app description here
 description: A new Flutter project.
 
@@ -35,6 +35,10 @@ dependencies:
   go_router: ^5.0.5
   hive_flutter: ^1.1.0
   hooks_riverpod: ^2.0.2
+  dio: any
+  logger: ^2.0.2
+  posts_data_source:
+    path: backend/packages/posts_data_source
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to

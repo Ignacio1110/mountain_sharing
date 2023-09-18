@@ -18,7 +18,7 @@ Future<void> main() async {
     ProviderScope(
       overrides: [
         appStorageProvider.overrideWithValue(appStorage),
-        allMountainsRepositoryProvider.overrideWithValue(fakeRepository)
+        // allMountainsRepositoryProvider.overrideWithValue(fakeRepository)
       ],
       child: const App(),
     ),

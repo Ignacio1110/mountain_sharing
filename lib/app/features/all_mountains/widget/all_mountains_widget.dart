@@ -7,7 +7,7 @@ class ItemMountainWidget extends StatelessWidget {
   const ItemMountainWidget({Key? key, required this.postData})
       : super(key: key);
 
-  final MountainPostModel postData;
+  final PostModel postData;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class ItemMountainWidget extends StatelessWidget {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(postData.name),
+                  Text(postData.authorId),
                   Text('data'),
                 ],
               ),
