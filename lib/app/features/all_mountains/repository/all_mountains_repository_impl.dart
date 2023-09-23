@@ -12,7 +12,7 @@ class AllMountainsRepositoryImpl extends AllMountainsRepository {
     await Future.delayed(const Duration(seconds: 1));
     final Dio _dio = Dio(
       BaseOptions(
-        baseUrl: 'http://localhost:8080',
+        baseUrl: 'http://10.0.2.2:8080',
         connectTimeout: const Duration(milliseconds: 5000),
         receiveTimeout: const Duration(milliseconds: 3000),
         responseType: ResponseType.json,
@@ -20,7 +20,7 @@ class AllMountainsRepositoryImpl extends AllMountainsRepository {
     );
 
     // http://localhost:8080/post
-    final result = await _dio.get<List>('/posts');
+    final result = await _dio.get<List>('/post');
     logger.i(result.data);
     logger.i(result.data.runtimeType);
 
