@@ -9,14 +9,19 @@ final allPostProvider = StateNotifierProvider.autoDispose<AllPostNotifier,
 });
 
 class AllPostNotifier extends StateNotifier<AsyncValue<List<PostModel>>> {
-  AllPostNotifier(this.ref) : super(const AsyncData([]));
+  AllPostNotifier(this.ref) : super(const AsyncData([])){
+    refresh();
+  }
 
   final Ref ref;
 
-  void refresh() async {
+  Future<void> refresh() async {
     // Counter can use the "ref" to read other providers
     state = const AsyncLoading();
     final repository = ref.read(allMountainsRepositoryProvider);
     state = await AsyncValue.guard(repository.getPosts);
   }
 }
+
+
+final firstLoading =StateProvider.autoDispose<bool>((ref) => true);

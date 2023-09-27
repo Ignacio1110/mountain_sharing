@@ -12,8 +12,8 @@ class AllMountainsRepositoryImpl extends AllMountainsRepository {
     await Future.delayed(const Duration(seconds: 1));
     final Dio _dio = Dio(
       BaseOptions(
-        baseUrl: 'http://10.0.2.2:8080',
-        connectTimeout: const Duration(milliseconds: 5000),
+        baseUrl: 'http://localhost:8080',//註記：Android虛擬機連線localhost問題，可以將localhost更改為10.0.2.2。
+      connectTimeout: const Duration(milliseconds: 5000),
         receiveTimeout: const Duration(milliseconds: 3000),
         responseType: ResponseType.json,
       ),
