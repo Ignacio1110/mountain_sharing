@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../core/utils.dart';
 import '../model/all_mountains_model.dart';
@@ -12,8 +10,9 @@ class AllMountainsRepositoryImpl extends AllMountainsRepository {
     await Future.delayed(const Duration(seconds: 1));
     final Dio _dio = Dio(
       BaseOptions(
-        baseUrl: 'http://localhost:8080',//註記：Android虛擬機連線localhost問題，可以將localhost更改為10.0.2.2。
-      connectTimeout: const Duration(milliseconds: 5000),
+        //註記：Android虛擬機連線localhost問題，可以將localhost更改為10.0.2.2。
+        baseUrl: 'http://localhost:8080',
+        connectTimeout: const Duration(milliseconds: 5000),
         receiveTimeout: const Duration(milliseconds: 3000),
         responseType: ResponseType.json,
       ),
@@ -33,6 +32,13 @@ class AllMountainsRepositoryImpl extends AllMountainsRepository {
       default:
         throw Exception();
     }
+  }
+
+  @override
+  Future<List<PostModel>> fetchPosts(PostModel last) async {
+    //TODO 去拿真正的資料
+    await Future.delayed(const Duration(seconds: 2));
+    return [PostModel.fromJson(sample)];
   }
 }
 

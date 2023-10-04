@@ -6,4 +6,9 @@ class AllMountainsRepositoryFake extends AllMountainsRepository {
   Future<List<PostModel>> getPosts() async {
     return [PostModel.fromJson(sample)];
   }
+
+  @override
+  Future<List<PostModel>> fetchPosts(PostModel last)async{
+    return [PostModel.fromJson(sample)];
+  }
 }
