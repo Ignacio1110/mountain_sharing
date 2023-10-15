@@ -32,16 +32,23 @@ class ItemMountainWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 backgroundImage: NetworkImage(
                     'https://img.freepik.com/premium-vector/avatar-profile-colorful-illustration-2_549209-82.jpg?w=2000'),
               ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(postData.authorId),
-                  Text('data'),
-                ],
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(postData.authorId),
+                    Text(
+                      postData.mountainName,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                  ],
+                ),
               ),
               TextButton.icon(
                 onPressed: () {},
@@ -52,49 +59,83 @@ class ItemMountainWidget extends StatelessWidget {
                     side: BorderSide(color: Colors.brown.shade600),
                   ),
                 ),
-                icon: Icon(Icons.add),
-                label: Text('follow'),
+                icon: const Icon(Icons.add),
+                label: const Text('follow'),
               )
             ],
           ),
-          Align(alignment: Alignment.centerLeft, child: Text('新手登山安全超懶人包')),
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-                "上山前的必備安全知識 | 花10分鐘看完再出發｜記得給隊友看 戶外、登山⛰️：記得跟我這樣做！不會再迷路啦🤩！這篇真的很重要趕緊分享給愛戶外的朋友！"),
+              postData.title,
+              style: const TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                postData.content,
+                overflow: TextOverflow.fade,
+                style: const TextStyle(
+                  fontSize: 16.0,
+                ),
+              ),
+            ),
           ),
           Container(
             decoration: ShapeDecoration(
               image: DecorationImage(
-                image: NetworkImage("https://via.placeholder.com/320x180"),
+                image: NetworkImage(postData.img),
                 fit: BoxFit.cover,
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
             ),
-            child: AspectRatio(
+            child: const AspectRatio(
               aspectRatio: 16 / 9,
             ),
           ),
-          const Align(
+          Align(
             alignment: Alignment.centerLeft,
-            child: Text('# 新手教學'),
+            child: Text(
+              postData.tags.map((e) => '#$e').join(' '),
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Row(
                 mainAxisSize: MainAxisSize.min,
-                children: [Icon(Icons.visibility_rounded), Text('123')],
+                children: [
+                  const Icon(Icons.visibility_rounded),
+                  Text(
+                    postData.views.toString(),
+                  )
+                ],
               ),
               Row(
                 mainAxisSize: MainAxisSize.min,
-                children: [Icon(Icons.visibility_rounded), Text('123')],
+                children: [
+                  const Icon(Icons.visibility_rounded),
+                  Text(
+                    postData.comments.toString(),
+                  )
+                ],
               ),
               Row(
                 mainAxisSize: MainAxisSize.min,
-                children: [Icon(Icons.visibility_rounded), Text('123')],
+                children: [
+                  const Icon(Icons.visibility_rounded),
+                  Text(
+                    postData.likes.toString(),
+                  )
+                ],
               ),
             ],
           )

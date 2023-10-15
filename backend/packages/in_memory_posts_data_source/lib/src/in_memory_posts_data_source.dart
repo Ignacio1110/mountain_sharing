@@ -16,7 +16,7 @@ class InMemoryPostsDataSource implements PostsDataSource {
             '/Users/ignacio/Documents/Ignacio/mountain_sharing/backend/packages/in_memory_posts_data_source/lib/src/posts.json')
         .readAsStringSync();
     final map = jsonDecode(jsonString);
-    for (final e in map['posts'] as List) {
+    for (final e in map as List) {
       final postModel = PostModel.fromJson(e as Map<String, dynamic>);
       _cache[postModel.id] = postModel;
     }

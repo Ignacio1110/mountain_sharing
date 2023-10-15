@@ -1,5 +1,4 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../../core/utils.dart';
 import '../model/all_mountains_model.dart';
 import 'all_mountains_repository.dart';
 import 'package:dio/dio.dart';
@@ -20,8 +19,6 @@ class AllMountainsRepositoryImpl extends AllMountainsRepository {
 
     // http://localhost:8080/post
     final result = await _dio.get<List>('/post');
-    logger.i(result.data);
-    logger.i(result.data.runtimeType);
 
     switch (result.statusCode) {
       case 200:

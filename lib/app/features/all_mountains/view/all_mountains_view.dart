@@ -55,7 +55,7 @@ class _AllMountainsViewWidgetState extends ConsumerState<AllMountainsView> {
         )));
       }
     });
-    final bool _firstLoading = ref.watch(firstLoading);
+    final bool firstLoadingState = ref.watch(firstLoading);
     return Scaffold(
       backgroundColor: Colors.yellow.shade100,
       appBar: AppBar(
@@ -68,7 +68,7 @@ class _AllMountainsViewWidgetState extends ConsumerState<AllMountainsView> {
         },
         color: Colors.yellow,
         child: postDataAsync.when(
-          loading: () => _firstLoading
+          loading: () => firstLoadingState
               ? const Center(
                   child: CircularProgressIndicator(),
                 )
