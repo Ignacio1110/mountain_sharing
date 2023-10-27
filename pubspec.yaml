@@ -40,6 +40,8 @@ dependencies:
   posts_data_source:
     path: backend/packages/posts_data_source
   json_annotation: ^4.8.1
+  gap: ^3.0.1
+  flutter_svg: ^2.0.8
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -48,6 +50,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   build_runner: ^2.4.6
+  flutter_gen_runner:
   flutter_lints: ^2.0.1
 
   # for localization
@@ -62,6 +65,19 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
+flutter_gen:
+  output: lib/app/core/theme/gen/ # Optional (default: lib/gen/)
+  line_length: 80 # Optional (default: 80)
+
+  integrations:
+    flutter_svg: true
+
+  colors:
+    inputs:
+      - assets/color/colors.xml
+    outputs:
+      class_name: AppColors
+
 flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -69,8 +85,8 @@ flutter:
   uses-material-design: true
   generate: true
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/icons/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -81,7 +97,12 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: Noto Serif TC
+      fonts:
+        - asset: assets/fonts/NotoSerifTC-Bold.otf
+          weight: 700
+        - asset: assets/fonts/NotoSerifTC-Medium.otf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

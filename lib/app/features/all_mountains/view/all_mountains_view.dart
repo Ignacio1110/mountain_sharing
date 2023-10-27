@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mountain_sharing/app/core/theme/app_layout.dart';
+import 'package:mountain_sharing/app/core/theme/design_system.dart';
 
 import '../../../core/utils.dart';
 import '../model/all_mountains_model.dart';
@@ -57,54 +59,61 @@ class _AllMountainsViewWidgetState extends ConsumerState<AllMountainsView> {
     });
     final bool firstLoadingState = ref.watch(firstLoading);
     return Scaffold(
-      backgroundColor: Colors.yellow.shade100,
-      appBar: AppBar(
-        title: const Text('台灣山岳'),
-      ),
-      body: RefreshIndicator(
-        onRefresh: () async {
-          ref.read(firstLoading.notifier).state = false;
-          await ref.read(allPostProvider.notifier).refresh();
-        },
-        color: Colors.yellow,
-        child: postDataAsync.when(
-          loading: () => firstLoadingState
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-              : const SizedBox(
-                  height: 100.0,
-                  width: double.infinity,
+      backgroundColor: AppColors.yellow100,
+      body: SafeArea(
+        child: Column(
+          children: [
+            AppTopBar(),
+            Expanded(
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  ref.read(firstLoading.notifier).state = false;
+                  await ref.read(allPostProvider.notifier).refresh();
+                },
+                color: Colors.yellow,
+                child: postDataAsync.when(
+                  loading: () => firstLoadingState
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : const SizedBox(
+                          height: 100.0,
+                          width: double.infinity,
+                        ),
+                  error: (err, stack) => Text('Error: $err'),
+                  data: (postData) => ListView.separated(
+                    controller: scrollController,
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    padding: const EdgeInsets.all(SpaceData.px16),
+                    itemCount: postData.length + 1,
+                    separatorBuilder: (BuildContext ctx, int index) {
+                      return const SizedBox(height: SpaceData.px16);
+                    },
+                    itemBuilder: (BuildContext ctx, int index) {
+                      if (index == postData.length) {
+                        return Center(
+                          child: ref.watch(isLoadingMore)
+                              ? const Center(child: CircularProgressIndicator())
+                              : GestureDetector(
+                                  onTap: () {
+                                    //載入更多資料，並且更新postData
+                                    ref
+                                        .read(allPostProvider.notifier)
+                                        .loadMore();
+                                  },
+                                  child: const Text('載入更多'),
+                                ),
+                        );
+                      }
+                      return ItemMountainWidget(
+                        postData: postData[index],
+                      );
+                    },
+                  ),
                 ),
-          error: (err, stack) => Text('Error: $err'),
-          data: (postData) => ListView.separated(
-            controller: scrollController,
-            physics: const AlwaysScrollableScrollPhysics(),
-            padding: const EdgeInsets.all(16.0),
-            itemCount: postData.length + 1,
-            separatorBuilder: (BuildContext ctx, int index) {
-              return const SizedBox(
-                height: 16.0,
-              );
-            },
-            itemBuilder: (BuildContext ctx, int index) {
-              if (index == postData.length) {
-                return Center(
-                  child: ref.watch(isLoadingMore)
-                      ? const Center(child: CircularProgressIndicator())
-                      : GestureDetector(
-                          onTap: () {
-                            //載入更多資料，並且更新postData
-                            ref.read(allPostProvider.notifier).loadMore();
-                          },
-                          child: const Text('載入更多')),
-                );
-              }
-              return ItemMountainWidget(
-                postData: postData[index],
-              );
-            },
-          ),
+              ),
+            ),
+          ],
         ),
       ),
     );

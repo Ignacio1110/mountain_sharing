@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:mountain_sharing/app/core/theme/app_layout.dart';
 
+import '../../../core/theme/design_system.dart';
 import '../model/all_mountains_model.dart';
 
 class ItemMountainWidget extends StatelessWidget {
@@ -19,44 +22,53 @@ class ItemMountainWidget extends StatelessWidget {
         vertical: 16.0,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: Colors.brown,
+          color: AppColors.primary,
           width: 2,
         ),
       ),
       child: Column(
         children: [
+          // 頭像、title、follow按鈕
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const CircleAvatar(
+                radius: 23.0,
                 backgroundImage: NetworkImage(
-                    'https://img.freepik.com/premium-vector/avatar-profile-colorful-illustration-2_549209-82.jpg?w=2000'),
+                    'https://media.licdn.com/dms/image/D4E03AQEqXIy7h3d5Ew/profile-displayphoto-shrink_800_800/0/1692798770105?e=2147483647&v=beta&t=GWZ_iDYeonDd7llyvzOhZQuKVsVsj76vMLY7ap9Azh0'),
               ),
+              const Gap(SpaceData.px20),
               Expanded(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(postData.authorId),
+                    // title
+                    Text(
+                      postData.authorId,
+                      style: AppTextStyle.heading4,
+                    ),
+                    // sub title
                     Text(
                       postData.mountainName,
+                      style: AppTextStyle.subtitle2,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                     ),
                   ],
                 ),
               ),
+              const Gap(SpaceData.px20),
               TextButton.icon(
                 onPressed: () {},
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                  shape: StadiumBorder(
-                    side: BorderSide(color: Colors.brown.shade600),
+                  backgroundColor: AppColors.white,
+                  foregroundColor: AppColors.black,
+                  shape: const StadiumBorder(
+                    side: BorderSide(color: AppColors.primary),
                   ),
                 ),
                 icon: const Icon(Icons.add),
@@ -64,28 +76,29 @@ class ItemMountainWidget extends StatelessWidget {
               )
             ],
           ),
+          const Gap(SpaceData.px12),
+          // 標題
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
               postData.title,
-              style: const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
+              style: AppTextStyle.heading4,
             ),
           ),
+          const Gap(SpaceData.px8),
+          // 貼文內容
           Expanded(
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 postData.content,
-                overflow: TextOverflow.fade,
-                style: const TextStyle(
-                  fontSize: 16.0,
-                ),
+                overflow: TextOverflow.ellipsis,
+                style: AppTextStyle.body1,
               ),
             ),
           ),
+          const Gap(SpaceData.px8),
+          // 圖片
           Container(
             decoration: ShapeDecoration(
               image: DecorationImage(
@@ -100,6 +113,8 @@ class ItemMountainWidget extends StatelessWidget {
               aspectRatio: 16 / 9,
             ),
           ),
+          const Gap(SpaceData.px12),
+          // 標籤 tag
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
@@ -107,35 +122,22 @@ class ItemMountainWidget extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
+          const Gap(SpaceData.px12),
+          // 按讚數、留言數
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(Icons.visibility_rounded),
-                  Text(
-                    postData.views.toString(),
-                  )
-                ],
+              CountLabel(
+                iconData: Icons.remove_red_eye_outlined,
+                count: postData.views,
               ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(Icons.visibility_rounded),
-                  Text(
-                    postData.comments.toString(),
-                  )
-                ],
+              CountLabel(
+                iconData: Icons.message_outlined,
+                count: postData.comments,
               ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(Icons.visibility_rounded),
-                  Text(
-                    postData.likes.toString(),
-                  )
-                ],
+              CountLabel(
+                iconData: Icons.thumb_up_outlined,
+                count: postData.likes,
               ),
             ],
           )
