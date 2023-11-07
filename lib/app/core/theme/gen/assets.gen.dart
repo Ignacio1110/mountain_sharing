@@ -24,10 +24,32 @@ class $AssetsIconsGen {
   List<SvgGenImage> get values => [face, wbSunny];
 }
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/Union.png
+  AssetGenImage get union => const AssetGenImage('assets/images/Union.png');
+
+  /// File path: assets/images/Union2.png
+  AssetGenImage get union2 => const AssetGenImage('assets/images/Union2.png');
+
+  /// File path: assets/images/Vector 1.png
+  AssetGenImage get vector1 =>
+      const AssetGenImage('assets/images/Vector 1.png');
+
+  /// File path: assets/images/Vector 2.png
+  AssetGenImage get vector2 =>
+      const AssetGenImage('assets/images/Vector 2.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [union, union2, vector1, vector2];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {

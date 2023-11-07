@@ -12,7 +12,9 @@ https://www.youtube.com/watch?v=7X9Dq1sBBsI&t=55s
 
 用於產生程式
 
+```shell
 dart run build_runner build
+```
 
 mason make model --jsonFile ./posts.json
 
