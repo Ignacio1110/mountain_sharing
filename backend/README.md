@@ -11,6 +11,14 @@ An example application built with dart_frog
 用Terminal在backend資料夾 運行 dart_frog dev
 
 ```shell
+flutter pub get
+```
+
+```shell
+dart pub global activate dart_frog_cli
+```
+
+```shell
 dart_frog dev
 ```
 
