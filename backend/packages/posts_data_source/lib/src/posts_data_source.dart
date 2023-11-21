@@ -7,7 +7,6 @@ import 'package:posts_data_source/posts_data_source.dart';
 /// * U - Update
 /// * D - Delete
 abstract class PostsDataSource {
-  
   /// Create and return the newly created todo.
   Future<PostModel> create(PostModel todo);
 

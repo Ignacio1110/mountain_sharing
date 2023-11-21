@@ -48,8 +48,10 @@ class ItemMountainWidget extends StatelessWidget {
                   children: [
                     // title
                     Text(
-                      postData.authorId,
+                      postData.userModel?.name ?? '未知用戶',
                       style: AppTextStyle.heading4,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     // sub title
                     Text(

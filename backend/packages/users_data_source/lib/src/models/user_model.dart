@@ -1,20 +1,24 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'user_model.g.dart';
 
 enum Gender { male, female }
 
+@immutable
 @JsonSerializable()
-class User {
-  int id;
-  String name;
-  String email;
-  Gender gender;
-  String? avatarUrl;
+class UserModel extends Equatable {
+  final String id;
+  final String name;
+  final String email;
+  final Gender gender;
+  final String? avatarUrl;
   @JsonKey(name: 'createEpoch', fromJson: epochToTime, toJson: timeToEpoch)
-  DateTime createDate;
+  final DateTime createDate;
 
-  User({
+  /// 構造函式
+  UserModel({
     required this.id,
     required this.name,
     required this.email,
@@ -23,9 +27,13 @@ class User {
     this.avatarUrl,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$UserToJson(this);
+  Map<String, dynamic> toJson() => _$UserModelToJson(this);
+
+  @override
+  List<Object?> get props => [id, name, email];
 }
 
 DateTime epochToTime(int epoch) {

@@ -1,4 +1,6 @@
-export 'package:posts_data_source/posts_data_source.dart' show PostModel;
+import 'package:mountain_models/mountain_models.dart' as data_source;
+
+typedef PostModel = data_source.PostResponse;
 
 final sample = {
   "id": "1",

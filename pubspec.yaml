@@ -37,8 +37,8 @@ dependencies:
   hooks_riverpod: ^2.0.2
   dio: any
   logger: ^2.0.2
-  posts_data_source:
-    path: backend/packages/posts_data_source
+  mountain_models:
+    path: backend/packages/mountain_models
   json_annotation: ^4.8.1
   gap: ^3.0.1
   flutter_svg: ^2.0.8

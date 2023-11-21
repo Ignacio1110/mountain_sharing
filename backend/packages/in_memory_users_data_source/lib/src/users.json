@@ -1,0 +1,18 @@
+[
+  {
+    "id": "bb45aaa6-a01b-458b-aa47-51a1be01d331",
+    "name": "Ignacio Zhang",
+    "email": "ignacioZhang@example.com",
+    "gender": "male",
+    "avatarUrl": null,
+    "createEpoch": 1699365512000
+  },
+  {
+    "id": "4d5b7ef1-12b2-4b74-85db-384e32fa2ec0",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "gender": "male",
+    "avatarUrl": null,
+    "createEpoch": 1699365512000
+  }
+]

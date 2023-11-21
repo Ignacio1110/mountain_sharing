@@ -6,9 +6,7 @@
 
 An example application built with dart_frog
 
-使用方式：
-
-用Terminal在backend資料夾 運行 dart_frog dev
+Terminal指令：
 
 ```shell
 flutter pub get
@@ -17,6 +15,18 @@ flutter pub get
 ```shell
 dart pub global activate dart_frog_cli
 ```
+
+```shell
+dart pub run build_runner build
+```
+
+建立package
+
+```shell
+mason make very_good_dart_package --project_name "mountain_models" --description " " -o packages
+```
+
+用Terminal在backend資料夾 運行 dart_frog dev
 
 ```shell
 dart_frog dev

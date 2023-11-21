@@ -22,10 +22,7 @@ class AllMountainsRepositoryImpl extends AllMountainsRepository {
 
     switch (result.statusCode) {
       case 200:
-        return result.data
-                ?.map((e) => PostModel.fromJson(e as Map<String, dynamic>))
-                .toList() ??
-            [];
+        return result.data!.map((e) => PostModel.fromJson(e)).toList();
       default:
         throw Exception();
     }

@@ -1,0 +1,16 @@
+name: in_memory_users_data_source
+description: users_data_source impl
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  users_data_source:
+    path: ../users_data_source
+    
+dev_dependencies:
+  mocktail: ^0.3.0
+  test: ^1.19.2
+  very_good_analysis: ^5.0.0

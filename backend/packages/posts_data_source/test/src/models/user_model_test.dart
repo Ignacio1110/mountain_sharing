@@ -1,11 +1,11 @@
-import 'package:posts_data_source/src/models/user_model.dart';
+import '../../../../users_data_source/lib/src/models/user_model.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('User Tests', () {
     test('User.fromJson() should correctly parse JSON', () {
       final json = {
-        'id': 1,
+        'id': '1',
         'name': 'John Doe',
         'email': 'johndoe@example.com',
         'gender': 'male',
@@ -13,9 +13,9 @@ void main() {
         'createEpoch': 1699365512000,
       };
 
-      final user = User.fromJson(json);
+      final user = UserModel.fromJson(json);
 
-      expect(user.id, 1);
+      expect(user.id, '1');
       expect(user.name, 'John Doe');
       expect(user.email, 'johndoe@example.com');
       expect(user.gender, Gender.male);
@@ -26,8 +26,8 @@ void main() {
 
     test('User.toJson() should correctly convert to JSON', () {
       final now = DateTime.now();
-      final user = User(
-        id: 2,
+      final user = UserModel(
+        id: '2',
         name: 'Jane Smith',
         email: 'janesmith@example.com',
         gender: Gender.female,
@@ -36,7 +36,7 @@ void main() {
 
       final json = user.toJson();
 
-      expect(json['id'], 2);
+      expect(json['id'], '2');
       expect(json['name'], 'Jane Smith');
       expect(json['email'], 'janesmith@example.com');
       expect(json['gender'], 'female');
@@ -46,14 +46,14 @@ void main() {
 
     test('User.fromJson() should handle gender "other" correctly', () {
       final json = {
-        'id': 3,
+        'id': '3',
         'name': 'Alex',
         'email': 'alex@example.com',
         'gender': 'other',
         'avatarUrl': null,
       };
 
-      expect(() => User.fromJson(json), throwsArgumentError);
+      expect(() => UserModel.fromJson(json), throwsArgumentError);
     });
   });
 }
