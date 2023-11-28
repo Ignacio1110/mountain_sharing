@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mountain_sharing/app/features/main/providers/main_providers.dart';
+import 'package:mountain_sharing/app/features/main_page/view/main_page_view.dart';
 
 import '../../../core/theme/gen/assets.gen.dart';
 import '../../all_mountains/view/all_mountains_view.dart';
@@ -48,7 +49,7 @@ class SplashScreen extends StatelessWidget {
                 // const Text(routeName),
                 ElevatedButton(
                   onPressed: () {
-                    context.push(AllMountainsView.routeName);
+                    context.push(MainPageView.routeName);
                   },
                   child: const Text(
                     'to next page',

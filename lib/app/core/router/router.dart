@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mountain_sharing/app/features/main_page/view/main_page_view.dart';
 
 import '../../features/all_mountains/view/all_mountains_view.dart';
 import '../../features/main/view/main_view.dart';
@@ -21,6 +22,10 @@ final routerProvider = Provider<GoRouter>(
         GoRoute(
           path: AllMountainsView.routeName,
           builder: (context, state) => const AllMountainsView(),
+        ),
+        GoRoute(
+          path: MainPageView.routeName,
+          builder: (context, state) => const MainPageView(),
         ),
       ],
     );

@@ -3,8 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../model/all_mountains_model.dart';
 import '../repository/all_mountains_repository_impl.dart';
 
-final allPostProvider = StateNotifierProvider.autoDispose<AllPostNotifier,
-    AsyncValue<List<PostModel>>>((ref) {
+final allPostProvider =
+    StateNotifierProvider<AllPostNotifier, AsyncValue<List<PostModel>>>((ref) {
   return AllPostNotifier(ref);
 });
 
@@ -25,7 +25,7 @@ class AllPostNotifier extends StateNotifier<AsyncValue<List<PostModel>>> {
   Future<void> loadMore() async {
     // Counter can use the "ref" to read other providers
     final repository = ref.read(allMountainsRepositoryProvider);
-    if(ref.read(isLoadingMore.notifier).state ==true) return;
+    if (ref.read(isLoadingMore.notifier).state == true) return;
     try {
       if (state.value == null) return;
 
