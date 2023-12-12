@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mountain_sharing/app/core/theme/design_system.dart';
 
+import '../../../core/utils.dart';
 import '../providers/create_post_providers.dart';
 
 class CreatePostView extends ConsumerWidget {
@@ -12,6 +14,7 @@ class CreatePostView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final title = ref.watch(titleProvider);
+    final tags = ref.watch(tagsProvider);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -61,15 +64,48 @@ class CreatePostView extends ConsumerWidget {
             ),
             // 文字輸入框
             TextField(
+              maxLength: 20,
               decoration: InputDecoration(
                 hintText: '請輸入標題(必須)',
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red),
+                ),
               ),
               keyboardType: TextInputType.text,
               onChanged: (String value) {
                 ref.read(titleProvider.notifier).state = value;
               },
             ),
+            Wrap(
+              children: tags
+                  .map(
+                    (e) => Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 4),
+                      decoration: ShapeDecoration(
+                        color: AppColors.gray100,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                      child: Text(
+                        e,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
             TextField(
+              maxLength: 500,
               decoration: InputDecoration(
                 hintText: '請輸入內文',
               ),
