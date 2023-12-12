@@ -1,30 +1,32 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-
+import 'package:meta/meta.dart';
 
 part 'post_model.g.dart';
 
 /// {@template post_model}
 /// PostModel description
 /// {@endtemplate}
+@immutable
 @JsonSerializable()
 class PostModel extends Equatable {
   /// {@macro post_model}
-  const PostModel({ 
-  required this.id,
-  required this.authorId,
-  required this.mountainName,
-  required this.title,
-  required this.content,
-  required this.img,
-  required this.tags,
-  required this.views,
-  required this.likes,
-  required this.comments,
+  const PostModel({
+    required this.id,
+    required this.authorId,
+    required this.mountainName,
+    required this.title,
+    required this.content,
+    required this.img,
+    required this.tags,
+    required this.views,
+    required this.likes,
+    required this.comments,
   });
 
-    /// Creates a PostModel from Json map
-  factory PostModel.fromJson(Map<String, dynamic> data) => _$PostModelFromJson(data);
+  /// Creates a PostModel from Json map
+  factory PostModel.fromJson(Map<String, dynamic> data) =>
+      _$PostModelFromJson(data);
 
   /// A description for id
   final String id;
@@ -56,8 +58,8 @@ class PostModel extends Equatable {
   /// A description for comments
   final int comments;
 
-    /// Creates a copy of the current PostModel with property changes
-  PostModel copyWith({ 
+  /// Creates a copy of the current PostModel with property changes
+  PostModel copyWith({
     String? id,
     String? authorId,
     String? mountainName,
@@ -83,8 +85,7 @@ class PostModel extends Equatable {
     );
   }
 
-
-    @override
+  @override
   List<Object?> get props => [
         id,
         authorId,
@@ -98,10 +99,11 @@ class PostModel extends Equatable {
         comments,
       ];
 
-    /// Creates a Json map from a PostModel
+  /// Creates a Json map from a PostModel
   Map<String, dynamic> toJson() => _$PostModelToJson(this);
 
-    /// Creates a toString() override for PostModel
+  /// Creates a toString() override for PostModel
   @override
-  String toString() => 'PostModel(id: $id, authorId: $authorId, mountainName: $mountainName, title: $title, content: $content, img: $img, tags: $tags, views: $views, likes: $likes, comments: $comments)';
+  String toString() =>
+      'PostModel(id: $id, authorId: $authorId, mountainName: $mountainName, title: $title, content: $content, img: $img, tags: $tags, views: $views, likes: $likes, comments: $comments)';
 }

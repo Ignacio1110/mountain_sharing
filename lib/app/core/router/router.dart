@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mountain_sharing/app/features/main_page/view/main_page_view.dart';
 
 import '../../features/all_mountains/view/all_mountains_view.dart';
+import '../../features/create_post/view/create_post_view.dart';
 import '../../features/main/view/main_view.dart';
 
 ///
@@ -26,6 +27,10 @@ final routerProvider = Provider<GoRouter>(
         GoRoute(
           path: MainPageView.routeName,
           builder: (context, state) => const MainPageView(),
+        ),
+        GoRoute(
+          path: CreatePostView.routeName,
+          builder: (context, state) => const CreatePostView(),
         ),
       ],
     );

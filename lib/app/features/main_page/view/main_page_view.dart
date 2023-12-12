@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mountain_sharing/app/core/theme/design_system.dart';
 import 'package:mountain_sharing/app/features/all_mountains/view/all_mountains_view.dart';
 import 'package:mountain_sharing/app/features/main_page/providers/main_page_providers.dart';
+
+import '../../create_post/view/create_post_view.dart';
 
 class MainPageView extends ConsumerWidget {
   /// TODO add your comment here
@@ -45,22 +48,28 @@ class _AddPostButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 48,
-      height: 38,
-      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-      decoration: ShapeDecoration(
-        color: AppColors.secondary,
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(
-            width: 2,
-            strokeAlign: BorderSide.strokeAlignCenter,
-            color: AppColors.primary,
+    return GestureDetector(
+      onTap: () {
+        // 跳轉
+        context.push(CreatePostView.routeName);
+      },
+      child: Container(
+        width: 48,
+        height: 38,
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+        decoration: ShapeDecoration(
+          color: AppColors.secondary,
+          shape: RoundedRectangleBorder(
+            side: const BorderSide(
+              width: 2,
+              strokeAlign: BorderSide.strokeAlignCenter,
+              color: AppColors.primary,
+            ),
+            borderRadius: BorderRadius.circular(16),
           ),
-          borderRadius: BorderRadius.circular(16),
         ),
+        child: const Icon(Icons.add),
       ),
-      child: const Icon(Icons.add),
     );
   }
 }
