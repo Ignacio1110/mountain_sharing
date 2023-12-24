@@ -44,6 +44,10 @@ dependencies:
   flutter_svg: ^2.0.8
   flutter_animate: ^4.2.0+1
 
+  # 圖片選擇
+  image_picker: ^1.0.5
+
+
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

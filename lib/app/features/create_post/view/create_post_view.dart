@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mountain_sharing/app/core/theme/design_system.dart';
 
 import '../../../core/utils.dart';
@@ -14,7 +17,9 @@ class CreatePostView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final title = ref.watch(titleProvider);
+    final content = ref.watch(contentProvider);
     final tags = ref.watch(tagsProvider);
+    final imageFile = ref.watch(imageFileProvider);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -22,45 +27,52 @@ class CreatePostView extends ConsumerWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('新貼文'),
+          title: const Text('新貼文'),
           actions: [
-            if (title.isNotEmpty) Text('下一步'),
+            Text(
+              '分享',
+              style: TextStyle(
+                  color: (title.isNotEmpty &&
+                          content.isNotEmpty &&
+                          imageFile != null)
+                      ? Colors.black
+                      : Colors.grey),
+            ),
           ],
         ),
         body: Column(
           children: [
-            Row(
-              children: [
-                Container(
-                  width: 100,
-                  height: 134.69,
-                  decoration: ShapeDecoration(
-                    image: DecorationImage(
-                      image:
-                          NetworkImage("https://via.placeholder.com/100x135"),
-                      fit: BoxFit.fill,
-                    ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4)),
-                  ),
+            GestureDetector(
+              onTap: () async {
+                final ImagePicker picker = ImagePicker();
+// Pick an image.
+                final XFile? image =
+                    await picker.pickImage(source: ImageSource.gallery);
+                debugPrint(image.toString());
+                debugPrint(image?.path.toString());
+                ref.read(imageFileProvider.notifier).state = image;
+              },
+              child: AspectRatio(
+                aspectRatio: 16 / 9,
+                child: Container(
+                  color: const Color(0xFFD9D9D9),
+                  child: imageFile == null
+                      ? const Icon(
+                          Icons.add,
+                          size: 36,
+                        )
+                      : Image.file(
+                          File(imageFile.path),
+                          errorBuilder: (BuildContext context, Object error,
+                              StackTrace? stackTrace) {
+                            return const Center(
+                              child: Text('This image type is not supported'),
+                            );
+                          },
+                          fit: BoxFit.cover,
+                        ),
                 ),
-                SizedBox(
-                  width: 12.0,
-                ),
-                Container(
-                  width: 100,
-                  height: 134.69,
-                  decoration: ShapeDecoration(
-                    image: DecorationImage(
-                      image:
-                          NetworkImage("https://via.placeholder.com/100x135"),
-                      fit: BoxFit.fill,
-                    ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4)),
-                  ),
-                ),
-              ],
+              ),
             ),
             // 文字輸入框
             TextField(
