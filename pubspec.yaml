@@ -47,6 +47,12 @@ dependencies:
   # 圖片選擇
   image_picker: ^1.0.5
 
+  # firebase
+  firebase_core: ^2.24.2
+  firebase_crashlytics: ^3.4.8
+  firebase_auth: ^4.15.3
+
+
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to

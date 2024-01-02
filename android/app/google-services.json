@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "180906214806",
+    "project_id": "mountain-sharing-dev",
+    "storage_bucket": "mountain-sharing-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180906214806:android:cc0df33fb548e8abe809b7",
+        "android_client_info": {
+          "package_name": "com.example.mountain_sharing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHLKCWW94mb82rbWPvevLmyLks5ef-cmc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

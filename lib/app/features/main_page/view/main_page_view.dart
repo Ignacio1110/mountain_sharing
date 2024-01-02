@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mountain_sharing/app/core/theme/design_system.dart';
 import 'package:mountain_sharing/app/features/all_mountains/view/all_mountains_view.dart';
 import 'package:mountain_sharing/app/features/main_page/providers/main_page_providers.dart';
+import 'package:mountain_sharing/app/features/main_page/widget/demo_crash_view.dart';
 
 import '../../create_post/view/create_post_view.dart';
 
@@ -15,7 +16,7 @@ class MainPageView extends ConsumerWidget {
 
   final List<Widget> pages = const [
     AllMountainsView(),
-    Placeholder(),
+    DemoCrashView(),
     Placeholder(),
     Placeholder()
   ];
