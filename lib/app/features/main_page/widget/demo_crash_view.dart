@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class DemoCrashView extends StatelessWidget {
@@ -5,13 +6,33 @@ class DemoCrashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FirebaseAnalytics.instance.setCurrentScreen(screenName: 'demo_crash_view');
+
     return Placeholder(
       child: Center(
-        child: ElevatedButton(
-          onPressed: () async {
-            throw Error();
-          },
-          child: Text('test error'),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              onPressed: () async {
+                throw Error();
+              },
+              child: Text('test error'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+                await analytics.logEvent(
+                  name: 'test_event',
+                  parameters: {
+                    'user': 'ignacio',
+                    'category': 'l1',
+                  },
+                );
+              },
+              child: Text('test event'),
+            ),
+          ],
         ),
       ),
     );

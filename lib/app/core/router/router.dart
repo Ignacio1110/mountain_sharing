@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mountain_sharing/app/features/main_page/view/main_page_view.dart';
@@ -14,6 +15,9 @@ final routerProvider = Provider<GoRouter>(
     return GoRouter(
       // TODO: add your router here
       initialLocation: MainView.routeName,
+      observers: [
+        FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance)
+      ],
       routes: [
         /// for showing onboarding
         GoRoute(
