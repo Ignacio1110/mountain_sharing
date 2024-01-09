@@ -5,7 +5,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mountain_sharing/app/core/theme/design_system.dart';
 
-import '../../../core/utils.dart';
 import '../providers/create_post_providers.dart';
 
 class CreatePostView extends ConsumerWidget {
@@ -77,7 +76,7 @@ class CreatePostView extends ConsumerWidget {
             // 文字輸入框
             TextField(
               maxLength: 20,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: '請輸入標題(必須)',
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.red),
@@ -104,7 +103,7 @@ class CreatePostView extends ConsumerWidget {
                       ),
                       child: Text(
                         e,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 14,
                           fontFamily: 'Inter',
@@ -118,7 +117,7 @@ class CreatePostView extends ConsumerWidget {
             ),
             TextField(
               maxLength: 500,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: '請輸入內文',
               ),
               keyboardType: TextInputType.text,

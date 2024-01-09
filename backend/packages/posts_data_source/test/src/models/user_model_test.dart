@@ -1,5 +1,6 @@
-import '../../../../users_data_source/lib/src/models/user_model.dart';
 import 'package:test/test.dart';
+
+import '../../../../users_data_source/lib/src/models/user_model.dart';
 
 void main() {
   group('User Tests', () {
@@ -21,7 +22,7 @@ void main() {
       expect(user.gender, Gender.male);
       expect(user.avatarUrl, isNull);
       expect(
-          user.createDate, DateTime.fromMillisecondsSinceEpoch(1699365512000));
+          user.createDate, DateTime.fromMillisecondsSinceEpoch(1699365512000),);
     });
 
     test('User.toJson() should correctly convert to JSON', () {

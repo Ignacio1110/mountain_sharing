@@ -9,16 +9,9 @@ enum Gender { male, female }
 @immutable
 @JsonSerializable()
 class UserModel extends Equatable {
-  final String id;
-  final String name;
-  final String email;
-  final Gender gender;
-  final String? avatarUrl;
-  @JsonKey(name: 'createEpoch', fromJson: epochToTime, toJson: timeToEpoch)
-  final DateTime createDate;
 
   /// 構造函式
-  UserModel({
+  const UserModel({
     required this.id,
     required this.name,
     required this.email,
@@ -29,6 +22,13 @@ class UserModel extends Equatable {
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
+  final String id;
+  final String name;
+  final String email;
+  final Gender gender;
+  final String? avatarUrl;
+  @JsonKey(name: 'createEpoch', fromJson: epochToTime, toJson: timeToEpoch)
+  final DateTime createDate;
 
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
 

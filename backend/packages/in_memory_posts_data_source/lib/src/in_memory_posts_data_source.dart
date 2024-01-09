@@ -1,6 +1,7 @@
-import 'package:posts_data_source/posts_data_source.dart';
-import 'dart:io';
 import 'dart:convert';
+import 'dart:io';
+
+import 'package:posts_data_source/posts_data_source.dart';
 
 /// {@template in_memory_posts_data_source}
 /// An in-memory implementation of the TodosDataSource interface.
@@ -13,7 +14,7 @@ class InMemoryPostsDataSource implements PostsDataSource {
 
   Future<void> _init() async {
     final jsonString = File(
-            '/Users/ignacio/Documents/Ignacio/mountain_sharing/backend/packages/in_memory_posts_data_source/lib/src/posts.json')
+            '/Users/ignacio/Documents/Ignacio/mountain_sharing/backend/packages/in_memory_posts_data_source/lib/src/posts.json',)
         .readAsStringSync();
     final map = jsonDecode(jsonString);
     for (final e in map as List) {

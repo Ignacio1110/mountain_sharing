@@ -9,7 +9,6 @@ import 'package:mountain_sharing/firebase_options_dev.dart';
 import 'app/app.dart';
 import 'app/core/local_storage/app_storage.dart';
 import 'app/features/all_mountains/repository/all_mountains_repository_fake.dart';
-import 'app/features/all_mountains/repository/all_mountains_repository_impl.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

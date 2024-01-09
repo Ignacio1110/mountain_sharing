@@ -7,7 +7,7 @@ class AllMountainsRepositoryImpl extends AllMountainsRepository {
   @override
   Future<List<PostModel>> getPosts() async {
     await Future.delayed(const Duration(seconds: 1));
-    final Dio _dio = Dio(
+    final Dio dio = Dio(
       BaseOptions(
         //註記：Android虛擬機連線localhost問題，可以將localhost更改為10.0.2.2。
         baseUrl: 'http://localhost:8080',
@@ -18,7 +18,7 @@ class AllMountainsRepositoryImpl extends AllMountainsRepository {
     );
 
     // http://localhost:8080/post
-    final result = await _dio.get<List>('/post');
+    final result = await dio.get<List>('/post');
 
     switch (result.statusCode) {
       case 200:

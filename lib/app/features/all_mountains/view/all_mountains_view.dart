@@ -52,7 +52,7 @@ class _AllMountainsViewWidgetState extends ConsumerState<AllMountainsView> {
         logger.d('has error:${next.error}');
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(
-          'error:${next} ',
+          'error:$next ',
           maxLines: 2,
         )));
       }
@@ -63,7 +63,7 @@ class _AllMountainsViewWidgetState extends ConsumerState<AllMountainsView> {
       body: SafeArea(
         child: Column(
           children: [
-            AppTopBar(),
+            const AppTopBar(),
             Expanded(
               child: RefreshIndicator(
                 onRefresh: () async {

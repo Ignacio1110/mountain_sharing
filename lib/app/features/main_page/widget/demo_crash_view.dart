@@ -17,7 +17,7 @@ class DemoCrashView extends StatelessWidget {
               onPressed: () async {
                 throw Error();
               },
-              child: Text('test error'),
+              child: const Text('test error'),
             ),
             ElevatedButton(
               onPressed: () async {
@@ -30,7 +30,7 @@ class DemoCrashView extends StatelessWidget {
                   },
                 );
               },
-              child: Text('test event'),
+              child: const Text('test event'),
             ),
           ],
         ),

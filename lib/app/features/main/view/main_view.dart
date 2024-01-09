@@ -6,7 +6,6 @@ import 'package:mountain_sharing/app/features/main/providers/main_providers.dart
 import 'package:mountain_sharing/app/features/main_page/view/main_page_view.dart';
 
 import '../../../core/theme/gen/assets.gen.dart';
-import '../../all_mountains/view/all_mountains_view.dart';
 
 class MainView extends ConsumerWidget {
   const MainView({super.key});
@@ -117,7 +116,9 @@ class SplashScreen extends StatelessWidget {
                     end: const Offset(0, 100),
                   )
               ],
-              child: Assets.images.vector2.image(),
+              child: Assets.images.vector2.image(
+                fit: BoxFit.fitWidth,
+              ),
             ),
           ),
         ],

@@ -19,7 +19,7 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'email': instance.email,
-      'gender': _$GenderEnumMap[instance.gender]!,
+      'gender': _$GenderEnumMap[instance.gender],
       'avatarUrl': instance.avatarUrl,
       'createEpoch': timeToEpoch(instance.createDate),
     };

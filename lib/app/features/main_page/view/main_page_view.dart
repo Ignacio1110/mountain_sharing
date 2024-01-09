@@ -45,7 +45,7 @@ class MainPageView extends ConsumerWidget {
 }
 
 class _AddPostButton extends StatelessWidget {
-  const _AddPostButton({super.key});
+  const _AddPostButton();
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,6 @@ class _AddPostButton extends StatelessWidget {
 
 class _BottomAppBarItem extends ConsumerWidget {
   const _BottomAppBarItem({
-    super.key,
     required this.itemIndex,
     this.label = '',
   });

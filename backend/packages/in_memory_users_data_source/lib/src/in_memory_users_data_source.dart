@@ -17,7 +17,7 @@ class InMemoryUsersDataSource implements UsersDataSource {
 
   Future<void> _initUser() async {
     final jsonString = File(
-            '/Users/ignacio/Documents/Ignacio/mountain_sharing/backend/packages/in_memory_users_data_source/lib/src/users.json')
+            '/Users/ignacio/Documents/Ignacio/mountain_sharing/backend/packages/in_memory_users_data_source/lib/src/users.json',)
         .readAsStringSync();
     final map = jsonDecode(jsonString);
     for (final e in map as List) {

@@ -19,7 +19,7 @@ Trail _$TrailFromJson(Map<String, dynamic> json) => Trail(
       (json['TR_ENTRANCE'] as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : TrailEntrance.fromJson(e as Map<String, dynamic>))
+              : TrailEntrance.fromJson(e as Map<String, dynamic>),)
           .toList(),
       json['TR_LENGTH'] as String?,
       (json['TR_LENGTH_NUM'] as num?)?.toDouble(),
