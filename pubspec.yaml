@@ -50,10 +50,11 @@ dependencies:
   # firebase
   firebase_core: ^2.24.2
   firebase_crashlytics: ^3.4.8
-  firebase_auth: ^4.15.3
+  firebase_auth: ^4.16.0
   firebase_analytics: ^10.7.4
 
-
+  # 第三方登入
+  google_sign_in: ^6.2.1
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to

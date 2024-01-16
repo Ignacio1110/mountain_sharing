@@ -49,5 +49,18 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>山友 App 想要使用您的相簿</string>
+    <key>GIDClientID</key>
+    <string>180906214806-p6tiitlevbr8l3pk0vl78jqpvj1jf9e0.apps.googleusercontent.com</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+    	<dict>
+    		<key>CFBundleTypeRole</key>
+    		<string>Editor</string>
+    		<key>CFBundleURLSchemes</key>
+    		<array>
+    			<string>com.googleusercontent.apps.180906214806-p6tiitlevbr8l3pk0vl78jqpvj1jf9e0</string>
+    		</array>
+    	</dict>
+    </array>
 </dict>
 </plist>

@@ -1,6 +1,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mountain_sharing/app/features/login/view/login_view.dart';
 import 'package:mountain_sharing/app/features/main_page/view/main_page_view.dart';
 
 import '../../features/all_mountains/view/all_mountains_view.dart';
@@ -35,6 +36,10 @@ final routerProvider = Provider<GoRouter>(
         GoRoute(
           path: CreatePostView.routeName,
           builder: (context, state) => const CreatePostView(),
+        ),
+        GoRoute(
+          path: LoginView.routeName,
+          builder: (context, state) => const LoginView(),
         ),
       ],
     );
