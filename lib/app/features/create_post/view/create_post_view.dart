@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:mountain_sharing/app/core/theme/design_system.dart';
 
 import '../providers/create_post_providers.dart';
+import '../repository/create_post_repository_impl.dart';
 
 class CreatePostView extends ConsumerWidget {
   /// TODO add your comment here
@@ -19,23 +20,32 @@ class CreatePostView extends ConsumerWidget {
     final content = ref.watch(contentProvider);
     final tags = ref.watch(tagsProvider);
     final imageFile = ref.watch(imageFileProvider);
+
+    final shareEnabled =
+        (title.isNotEmpty && content.isNotEmpty && imageFile != null);
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
-        // FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
         appBar: AppBar(
           title: const Text('新貼文'),
           actions: [
-            Text(
-              '分享',
-              style: TextStyle(
-                  color: (title.isNotEmpty &&
-                          content.isNotEmpty &&
-                          imageFile != null)
-                      ? Colors.black
-                      : Colors.grey),
+            GestureDetector(
+              onTap: () {
+                if (shareEnabled) {
+                  ref
+                      .read(createPostRepositoryProvider)
+                      .createPost(title, content, tags, 'imgUrl');
+                }
+              },
+              child: Text(
+                '分享',
+                style: TextStyle(
+                  color: shareEnabled ? Colors.black : Colors.grey,
+                ),
+              ),
             ),
           ],
         ),
