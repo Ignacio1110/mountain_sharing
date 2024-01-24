@@ -33,11 +33,18 @@ class CreatePostView extends ConsumerWidget {
           title: const Text('新貼文'),
           actions: [
             GestureDetector(
-              onTap: () {
+              onTap: () async {
                 if (shareEnabled) {
+                  final xFile = ref.read(imageFileProvider);
+                  final imageData = await xFile?.readAsBytes();
+
+                  debugPrint(imageData.toString());
+
+                  if (imageData == null) return;
+
                   ref
                       .read(createPostRepositoryProvider)
-                      .createPost(title, content, tags, 'imgUrl');
+                      .createPost(title, content, tags, imageData);
                 }
               },
               child: Text(

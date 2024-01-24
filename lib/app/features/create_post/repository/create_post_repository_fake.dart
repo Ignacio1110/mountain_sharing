@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'create_post_repository.dart';
 
 class CreatePostRepositoryFake extends CreatePostRepository {
@@ -7,6 +9,6 @@ class CreatePostRepositoryFake extends CreatePostRepository {
     String title,
     String content,
     List<String> tags,
-    String img,
+    Uint8List img,
   ) async {}
 }
