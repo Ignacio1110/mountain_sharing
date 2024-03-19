@@ -14,3 +14,7 @@ dart_fix:
 
 dart_format:
 	dart format lib/
+
+dart_run_slang:
+	echo "產出翻譯"
+	dart run slang

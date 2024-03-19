@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../l10n/l10n.dart';
-import 'core/router/router.dart';
-import 'core/theme/app_theme.dart';
+import 'package:mountain_sharing/app/core/router/router.dart';
+import 'package:mountain_sharing/app/core/theme/app_theme.dart';
+import 'package:mountain_sharing/i18n/strings.g.dart';
 
 class App extends ConsumerWidget {
   /// [App]
@@ -15,12 +15,10 @@ class App extends ConsumerWidget {
     final router = ref.read(routerProvider);
 
     return MaterialApp.router(
-      // TODO: add your app name here
       title: 'Mountains',
-      // TODO: add your localization here
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      // TODO: add your theme here
+      locale: TranslationProvider.of(context).flutterLocale,
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      supportedLocales: AppLocaleUtils.supportedLocales,
       theme: appTheme.lightTheme,
       darkTheme: appTheme.darkTheme,
       routeInformationParser: router.routeInformationParser,

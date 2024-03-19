@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mountain_sharing/firebase_options_dev.dart';
+import 'package:mountain_sharing/i18n/strings.g.dart';
 
 import 'app/app.dart';
 import 'app/core/local_storage/app_storage.dart';
@@ -34,13 +35,17 @@ Future<void> main() async {
 
   await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
 
+  LocaleSettings.useDeviceLocale(); // and this
+
   runApp(
     ProviderScope(
       overrides: [
         appStorageProvider.overrideWithValue(appStorage),
         // allMountainsRepositoryProvider.overrideWithValue(fakeRepository)
       ],
-      child: const App(),
+      child: TranslationProvider(
+        child: const App(),
+      ),
     ),
   );
 }

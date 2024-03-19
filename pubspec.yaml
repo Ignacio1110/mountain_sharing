@@ -44,6 +44,10 @@ dependencies:
   # 第三方登入
   google_sign_in: ^6.2.1
 
+  # 多國語系
+  slang: ^3.30.1
+  slang_flutter: ^3.30.0
+
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -62,6 +66,7 @@ dev_dependencies:
 
   intl: ^0.18.0
   json_serializable: ^6.7.1
+  slang_build_runner: ^3.30.0
   very_good_analysis: ^5.0.0
 
 flutter_gen:
