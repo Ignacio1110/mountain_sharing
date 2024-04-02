@@ -6,7 +6,7 @@
 /// Locales: 2
 /// Strings: 2 (1 per locale)
 ///
-/// Built on 2024-03-19 at 17:47 UTC
+/// Built on 2024-03-29 at 02:52 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -148,7 +148,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
-	String get appTitle => 'Mountains';
+	String get appTitle => '山友';
 }
 
 // Path: <root>
@@ -177,7 +177,7 @@ class _StringsEn extends Translations {
 	@override late final _StringsEn _root = this; // ignore: unused_field
 
 	// Translations
-	@override String get appTitle => '山友';
+	@override String get appTitle => 'Mountains';
 }
 
 /// Flat map(s) containing all translations.
@@ -186,7 +186,7 @@ class _StringsEn extends Translations {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'appTitle': return 'Mountains';
+			case 'appTitle': return '山友';
 			default: return null;
 		}
 	}
@@ -195,7 +195,7 @@ extension on Translations {
 extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'appTitle': return '山友';
+			case 'appTitle': return 'Mountains';
 			default: return null;
 		}
 	}
