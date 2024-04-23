@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:home_widget/home_widget.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mountain_sharing/app/core/utils/home_widget_utils.dart';
 import 'package:mountain_sharing/app/features/main/providers/main_providers.dart';
 import 'package:mountain_sharing/app/features/main_page/view/main_page_view.dart';
 
@@ -79,6 +81,13 @@ class SplashScreen extends StatelessWidget {
                   child: const Text(
                     'Google 登入',
                   ),
+                ),
+                ElevatedButton(
+                  onPressed: () => HomeWidgetUtils().sendDataAndUpdateWidget(
+                    title: ' Dash2',
+                    message: 'Dash',
+                  ),
+                  child: const Text('test update'),
                 ),
                 StreamBuilder(
                   stream: FirebaseAuth.instance.userChanges(),

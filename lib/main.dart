@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:home_widget/home_widget.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mountain_sharing/firebase_options_dev.dart';
 import 'package:mountain_sharing/i18n/strings.g.dart';
@@ -36,6 +37,9 @@ Future<void> main() async {
   await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
 
   LocaleSettings.useDeviceLocale(); // and this
+
+  /// Set the app group identifier for the home widget
+  await HomeWidget.setAppGroupId('group.com.ignaciozhang85.mountain');
 
   runApp(
     ProviderScope(
